@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage ('Build'){
             steps{
-                echo "get code from github"
-                git branch: 'master', url: 'https://github.com/wangliang029/demo.git'
+              echo "build project"
+              sh '''
+                 mvn clean
+                 mvn clean install -DskipTests '''
             }
         }
     }
